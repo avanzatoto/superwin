@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>AVANZATOTO - Link Login Resmi & Promo Bonus Super Premium</title>
     <meta name="description" content="Akses Link Login Resmi AVANZATOTO dengan proses cepat, aman, dan terpercaya. Nikmati promo bonus berlimpah dan pelayanan terbaik 24/7.">
 
@@ -50,24 +50,30 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            min-height: 100dvh;
             padding: 20px 10px;
             position: relative;
             overflow-x: hidden;
         }
 
+        /* PERBAIKAN BACKGROUND UNTUK iOS & ANDROID AGAR LNCAR / STABIL SAAT SCROLL */
         body::before {
             content: "";
             position: fixed;
             top: 0;
             left: 0;
+            right: 0;
+            bottom: 0;
             width: 100vw;
             height: 100vh;
+            height: 100dvh;
             background-image: url('background-besar.jpg');
             background-repeat: repeat;
             background-size: 140px 140px;
-            background-attachment: fixed;
             filter: brightness(1.2) contrast(1.1);
             z-index: -3;
+            transform: translateZ(0); /* Hardware Acceleration untuk Smooth Scroll */
+            will-change: transform;
         }
 
         body::after {
@@ -75,10 +81,14 @@
             position: fixed;
             top: 0;
             left: 0;
+            right: 0;
+            bottom: 0;
             width: 100vw;
             height: 100vh;
+            height: 100dvh;
             background: radial-gradient(circle at 50% 20%, rgba(255, 0, 51, 0.25) 0%, rgba(5, 5, 5, 0.65) 85%);
             z-index: -2;
+            transform: translateZ(0);
         }
 
         /* Keyframes Animasi */
@@ -91,7 +101,6 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* KEYFRAMES UNTUK KACA GLOW/GLASS SHINE BERGERAK */
         @keyframes glassShine {
             0% {
                 left: -120%;
@@ -122,7 +131,6 @@
             margin: auto;
         }
 
-        /* EFEK ROTASI PADA BINGKAI SAJA */
         .app-container::before {
             content: '';
             position: absolute;
@@ -152,7 +160,6 @@
             border-radius: 24px;
         }
 
-        /* KOLOM BESAR UTAMA - GLASSMORPHISM */
         .app-wrapper {
             position: relative;
             z-index: 2;
@@ -165,7 +172,6 @@
             overflow: hidden;
         }
 
-        /* CANVAS DUST PARTIKEL KHUSUS DI DALAM KOLOM BESAR */
         #dustCanvas {
             position: absolute;
             top: 0;
@@ -202,41 +208,49 @@
             text-transform: uppercase;
         }
 
-        /* HEADER SECTION */
+        /* HEADER SECTION - DIPERBAIKI SUPAYA JUDUL TIDAK KEPOTONG */
         .main-header {
             text-align: center;
             margin-bottom: 25px;
             position: relative;
             z-index: 2;
+            display: flex;
+            justify-content: center;
+            width: 100%;
         }
 
         .logo-box {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
+            justify-content: center;
+            gap: 10px;
             background: rgba(0, 0, 0, 0.65);
-            padding: 10px 30px;
+            padding: 10px 20px;
             border-radius: 50px;
             border: 2px solid var(--gold-main);
             box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            max-width: 100%;
+            box-sizing: border-box;
         }
 
         .logo-box i {
-            font-size: 32px;
+            font-size: clamp(22px, 5vw, 32px);
             background: linear-gradient(90deg, #ffd700, #ff0033, #ffe600, #ffd700);
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: textShiftRainbow 3s linear infinite;
+            flex-shrink: 0;
         }
 
         .logo-text {
-            font-size: 36px;
+            font-size: clamp(22px, 6vw, 36px); /* Ukuran font otomatis menyesuaikan layar HP */
             font-weight: 900;
             font-style: italic;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             display: flex;
             align-items: center;
+            white-space: nowrap; /* Mencegah ganti baris secara liar */
         }
 
         .logo-text .white-text {
@@ -350,7 +364,7 @@
         }
 
         .main-title {
-            font-size: 36px;
+            font-size: clamp(26px, 5vw, 36px);
             font-weight: 900;
             color: #ffffff;
             line-height: 1;
@@ -366,7 +380,7 @@
         }
 
         .promo-title-anim {
-            font-size: 48px;
+            font-size: clamp(34px, 7vw, 48px);
             font-weight: 900;
             line-height: 0.9;
             font-style: italic;
@@ -390,7 +404,7 @@
             margin-top: 4px;
         }
 
-        /* MENU LIST - DENGAN EFEK GLASS BERGERAK SAAT DISENTUH/HOVER */
+        /* MENU LIST */
         .features-list {
             display: flex;
             flex-direction: column;
@@ -408,12 +422,11 @@
             align-items: center;
             gap: 12px;
             transition: all 0.3s ease;
-            overflow: hidden; /* Penting untuk mengurung kilauan kaca */
+            overflow: hidden;
             backdrop-filter: blur(4px);
             -webkit-backdrop-filter: blur(4px);
         }
 
-        /* Kilau Kaca (Glass Shine Overlay) untuk Menu List */
         .feature-item-link::after {
             content: '';
             position: absolute;
@@ -434,7 +447,6 @@
             opacity: 0;
         }
 
-        /* Efek Sentuh / Hover / Active pada Menu List */
         .feature-item-link:hover,
         .feature-item-link:active,
         .feature-item-link:focus {
@@ -496,7 +508,7 @@
             text-shadow: 1px 1px 3px #000;
         }
 
-        /* ACTION AREA - DENGAN EFEK GLASS BERGERAK SAAT DISENTUH/HOVER */
+        /* ACTION AREA */
         .action-area {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -516,12 +528,11 @@
             text-decoration: none;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            overflow: hidden; /* Mengurung cahaya kaca bergerak */
+            overflow: hidden;
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
         }
 
-        /* Kilauan Kaca Bergerak untuk Tombol Aksi */
         .btn-action::after {
             content: '';
             position: absolute;
@@ -751,10 +762,19 @@
             animation: textShiftRainbow 4s linear infinite;
         }
 
-        /* RESPONSIVE DESIGN */
+        /* RESPONSIVE DESIGN - MEDIA QUERIES PENYESUAIAN HP & TABLET */
         @media (max-width: 768px) {
+            body {
+                padding: 12px 6px;
+            }
+
             .app-wrapper {
-                padding: 16px;
+                padding: 16px 12px;
+            }
+
+            .logo-box {
+                padding: 8px 15px;
+                gap: 8px;
             }
 
             .main-content {
@@ -764,14 +784,6 @@
 
             .title-block {
                 text-align: center;
-            }
-
-            .promo-title-anim {
-                font-size: 42px;
-            }
-
-            .main-title {
-                font-size: 32px;
             }
 
             .footer-bar {
@@ -789,6 +801,19 @@
 
             .copyright-box p {
                 font-size: 11px;
+            }
+        }
+
+        /* KHUSUS UNTUK HP DENGAN LAYAR KECIL (< 380px) */
+        @media (max-width: 380px) {
+            .logo-box {
+                padding: 6px 12px;
+            }
+            .logo-text {
+                font-size: 20px;
+            }
+            .action-area {
+                grid-template-columns: 1fr; /* Tombol bertumpuk agar tidak sesak di HP kecil */
             }
         }
     </style>
