@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AVANZATOTO - Link Login Resmi & Promo Bonus Super Premium</title>
     <meta name="description" content="Akses Link Login Resmi AVANZATOTO dengan proses cepat, aman, dan terpercaya. Nikmati promo bonus berlimpah dan pelayanan terbaik 24/7.">
 
@@ -50,55 +50,29 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            min-height: 100dvh;
             padding: 20px 10px;
             position: relative;
             overflow-x: hidden;
         }
 
-        /* PERBAIKAN BACKGROUND UNTUK iOS & ANDROID AGAR LNCAR / STABIL SAAT SCROLL */
         body::before {
             content: "";
             position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
             width: 100vw;
             height: 100vh;
-            height: 100dvh;
             background-image: url('background-besar.jpg');
             background-repeat: repeat;
             background-size: 140px 140px;
+            background-attachment: fixed;
             filter: brightness(1.2) contrast(1.1);
             z-index: -3;
-            transform: translateZ(0); /* Hardware Acceleration untuk Smooth Scroll */
-            will-change: transform;
         }
 
-        body::after {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            width: 100vw;
-            height: 100vh;
-            height: 100dvh;
-            background: radial-gradient(circle at 50% 20%, rgba(255, 0, 51, 0.25) 0%, rgba(5, 5, 5, 0.65) 85%);
-            z-index: -2;
-            transform: translateZ(0);
-        }
-
-        /* Keyframes Animasi */
         @keyframes textShiftRainbow {
             0% { background-position: 0% center; }
             100% { background-position: 200% center; }
-        }
-
-        @keyframes borderRotate {
-            100% { transform: rotate(360deg); }
         }
 
         @keyframes glassShine {
@@ -118,74 +92,45 @@
             }
         }
 
-        /* CONTAINER UTAMA BINGKAI EMAS BERGERAK */
+        /* BINGKAI UTAMA */
         .app-container {
             width: 100%;
             max-width: 920px;
             position: relative;
             border-radius: 24px;
-            padding: 3px;
-            overflow: hidden;
-            box-shadow: 0 0 35px rgba(255, 215, 0, 0.4), 0 0 20px rgba(255, 0, 51, 0.5);
-            display: flex;
             margin: auto;
+            border: 2px solid var(--gold-main);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+            overflow: hidden;
         }
 
-        .app-container::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(
-                transparent 0deg,
-                var(--gold-main) 60deg,
-                var(--gold-light) 90deg,
-                var(--gold-main) 120deg,
-                transparent 180deg,
-                var(--red-main) 240deg,
-                var(--gold-main) 300deg,
-                transparent 360deg
-            );
-            animation: borderRotate 4s linear infinite;
-            z-index: 1;
-
-            -webkit-mask: 
-                linear-gradient(#fff 0 0) content-box, 
-                linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            padding: 3px;
-            border-radius: 24px;
-        }
-
+        /* KOLOM BESAR UTAMA (DIBUAT TRANSPARAN DENGAN BLUR KACA) */
         .app-wrapper {
             position: relative;
             z-index: 2;
             width: 100%;
-            background: rgba(12, 3, 5, 0.35);
-            backdrop-filter: blur(1px);
-            -webkit-backdrop-filter: blur(1px);
-            border-radius: 21px;
+            height: 100%;
+            background: rgba(10, 5, 6, 0.70);
+            backdrop-filter: blur(0px);
+            -webkit-backdrop-filter: blur(0px);
             padding: 25px;
-            overflow: hidden;
         }
 
+        /* CANVAS DUST PARTIKEL DI ATAS SEMUA ELEMEN (Z-INDEX TINGGI, TETAP BISA DI-KLIK) */
         #dustCanvas {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
-            z-index: 10;
+            pointer-events: none; /* Agar tidak menghalangi klik pada menu/tombol */
+            z-index: 999;
         }
 
         /* TOP ANNOUNCEMENT BAR */
         .top-announcement {
             text-align: center;
-            background: linear-gradient(90deg, rgba(102, 0, 17, 0.75) 0%, rgba(179, 0, 36, 0.75) 50%, rgba(102, 0, 17, 0.75) 100%);
+            background: linear-gradient(90deg, rgba(102, 0, 17, 0.85) 0%, rgba(179, 0, 36, 0.85) 50%, rgba(102, 0, 17, 0.85) 100%);
             border: 1px solid var(--gold-main);
             border-radius: 50px;
             padding: 8px 15px;
@@ -208,49 +153,41 @@
             text-transform: uppercase;
         }
 
-        /* HEADER SECTION - DIPERBAIKI SUPAYA JUDUL TIDAK KEPOTONG */
+        /* HEADER SECTION */
         .main-header {
             text-align: center;
             margin-bottom: 25px;
             position: relative;
             z-index: 2;
-            display: flex;
-            justify-content: center;
-            width: 100%;
         }
 
         .logo-box {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: rgba(0, 0, 0, 0.65);
-            padding: 10px 20px;
+            gap: 12px;
+            background: rgba(0, 0, 0, 0.75);
+            padding: 10px 30px;
             border-radius: 50px;
             border: 2px solid var(--gold-main);
             box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-            max-width: 100%;
-            box-sizing: border-box;
         }
 
         .logo-box i {
-            font-size: clamp(22px, 5vw, 32px);
+            font-size: 32px;
             background: linear-gradient(90deg, #ffd700, #ff0033, #ffe600, #ffd700);
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: textShiftRainbow 3s linear infinite;
-            flex-shrink: 0;
         }
 
         .logo-text {
-            font-size: clamp(22px, 6vw, 36px); /* Ukuran font otomatis menyesuaikan layar HP */
+            font-size: 36px;
             font-weight: 900;
             font-style: italic;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             display: flex;
             align-items: center;
-            white-space: nowrap; /* Mencegah ganti baris secara liar */
         }
 
         .logo-text .white-text {
@@ -278,7 +215,7 @@
         }
 
         .visual-banner {
-            background: rgba(15, 5, 8, 0.55);
+            background: rgba(15, 5, 8, 0.65);
             border: 2px solid var(--red-main);
             border-radius: 20px;
             padding: 15px;
@@ -318,7 +255,7 @@
         }
 
         .badge-speed {
-            background: linear-gradient(90deg, rgba(128, 0, 20, 0.85) 0%, rgba(214, 0, 41, 0.85) 100%);
+            background: linear-gradient(90deg, rgba(128, 0, 20, 0.9) 0%, rgba(214, 0, 41, 0.9) 100%);
             border: 1.5px solid var(--gold-main);
             border-radius: 10px;
             padding: 8px 15px;
@@ -364,7 +301,7 @@
         }
 
         .main-title {
-            font-size: clamp(26px, 5vw, 36px);
+            font-size: 36px;
             font-weight: 900;
             color: #ffffff;
             line-height: 1;
@@ -380,7 +317,7 @@
         }
 
         .promo-title-anim {
-            font-size: clamp(34px, 7vw, 48px);
+            font-size: 48px;
             font-weight: 900;
             line-height: 0.9;
             font-style: italic;
@@ -392,7 +329,7 @@
         }
 
         .tagline-pill {
-            background: linear-gradient(90deg, rgba(102, 0, 17, 0.85) 0%, rgba(34, 0, 5, 0.85) 100%);
+            background: linear-gradient(90deg, rgba(102, 0, 17, 0.9) 0%, rgba(34, 0, 5, 0.9) 100%);
             border: 1.5px solid var(--gold-main);
             border-radius: 8px;
             padding: 5px 12px;
@@ -414,7 +351,7 @@
         .feature-item-link {
             position: relative;
             text-decoration: none;
-            background: rgba(0, 0, 0, 0.50);
+            background: rgba(0, 0, 0, 0.55);
             border: 1px solid rgba(255, 215, 0, 0.5);
             border-radius: 12px;
             padding: 9px 12px;
@@ -467,7 +404,7 @@
         .feature-icon {
             width: 36px;
             height: 36px;
-            background: rgba(51, 0, 10, 0.7);
+            background: rgba(51, 0, 10, 0.8);
             border: 1.5px solid var(--gold-main);
             border-radius: 50%;
             display: flex;
@@ -568,7 +505,7 @@
         }
 
         .btn-login {
-            background: linear-gradient(180deg, rgba(179, 0, 36, 0.85) 0%, rgba(77, 0, 15, 0.85) 100%);
+            background: linear-gradient(180deg, rgba(179, 0, 36, 0.9) 0%, rgba(77, 0, 15, 0.9) 100%);
             border: 2px solid var(--blue-accent);
             box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
         }
@@ -598,7 +535,7 @@
         }
 
         .btn-daftar {
-            background: linear-gradient(180deg, rgba(255, 215, 0, 0.9) 0%, rgba(184, 134, 11, 0.9) 100%);
+            background: linear-gradient(180deg, rgba(255, 215, 0, 0.95) 0%, rgba(184, 134, 11, 0.95) 100%);
             border: 2px solid #ffffff;
             box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
         }
@@ -650,7 +587,7 @@
 
         /* FOOTER BAR */
         .footer-bar {
-            background: rgba(0, 0, 0, 0.65);
+            background: rgba(0, 0, 0, 0.75);
             border: 1.5px solid var(--gold-main);
             border-radius: 12px;
             padding: 10px 15px;
@@ -693,7 +630,7 @@
 
         /* SEO ARTICLE */
         .seo-article {
-            background: rgba(18, 6, 8, 0.45);
+            background: rgba(18, 6, 8, 0.55);
             border: 1px solid rgba(255, 215, 0, 0.3);
             border-radius: 14px;
             padding: 20px;
@@ -762,19 +699,10 @@
             animation: textShiftRainbow 4s linear infinite;
         }
 
-        /* RESPONSIVE DESIGN - MEDIA QUERIES PENYESUAIAN HP & TABLET */
+        /* RESPONSIVE DESIGN */
         @media (max-width: 768px) {
-            body {
-                padding: 12px 6px;
-            }
-
             .app-wrapper {
-                padding: 16px 12px;
-            }
-
-            .logo-box {
-                padding: 8px 15px;
-                gap: 8px;
+                padding: 16px;
             }
 
             .main-content {
@@ -784,6 +712,14 @@
 
             .title-block {
                 text-align: center;
+            }
+
+            .promo-title-anim {
+                font-size: 42px;
+            }
+
+            .main-title {
+                font-size: 32px;
             }
 
             .footer-bar {
@@ -803,19 +739,6 @@
                 font-size: 11px;
             }
         }
-
-        /* KHUSUS UNTUK HP DENGAN LAYAR KECIL (< 380px) */
-        @media (max-width: 380px) {
-            .logo-box {
-                padding: 6px 12px;
-            }
-            .logo-text {
-                font-size: 20px;
-            }
-            .action-area {
-                grid-template-columns: 1fr; /* Tombol bertumpuk agar tidak sesak di HP kecil */
-            }
-        }
     </style>
 </head>
 <body>
@@ -823,7 +746,7 @@
     <div class="app-container">
         <div class="app-wrapper" id="wrapperBox">
             
-            <!-- CANVAS UNTUK EFEK BULIR DEBU EMAS DILAYANGKAN DI DALAM KOLOM UTAMA -->
+            <!-- CANVAS UNTUK EFEK BULIR DEBU EMAS BERGERAK BEBAS DI ATAS SEMUA MENU & FOTO -->
             <canvas id="dustCanvas"></canvas>
 
             <div class="top-announcement">
@@ -883,7 +806,6 @@
                             </div>
                         </a>
 
-                        <!-- MENU LUPA PASSWORD -->
                         <a href="https://avanzalancar.com/forgot/password" class="feature-item-link">
                             <div class="feature-icon">
                                 <i class="fa-solid fa-key" aria-hidden="true"></i>
@@ -991,7 +913,7 @@
         </div>
     </div>
 
-    <!-- SCRIPT PARTICLES EMAS KHUSUS DALAM KOLOM UTAMA -->
+    <!-- SCRIPT PARTICLES EMAS MELAYANG KESANA KEMARI DI LAPISAN PALING ATAS -->
     <script>
         const canvas = document.getElementById('dustCanvas');
         const ctx = canvas.getContext('2d');
@@ -999,7 +921,7 @@
 
         let width, height;
         let particles = [];
-        const particleCount = 55;
+        const particleCount = 65;
 
         function resize() {
             width = canvas.width = wrapper.offsetWidth;
@@ -1017,18 +939,18 @@
             reset() {
                 this.x = Math.random() * width;
                 this.y = Math.random() * height;
-                this.size = Math.random() * 2.8 + 0.6;
-                this.speedX = (Math.random() - 0.5) * 0.7;
-                this.speedY = (Math.random() - 0.5) * 0.7 - 0.2;
+                this.size = Math.random() * 3.0 + 0.8;
+                this.speedX = (Math.random() - 0.5) * 1.2;
+                this.speedY = (Math.random() - 0.5) * 1.2 - 0.2;
                 this.opacity = Math.random() * 0.8 + 0.2;
-                this.fadeSpeed = Math.random() * 0.012 + 0.004;
+                this.fadeSpeed = Math.random() * 0.015 + 0.005;
                 this.fadeDirection = Math.random() > 0.5 ? 1 : -1;
                 
                 const colors = [
                     'rgba(255, 215, 0, ',   /* Gold */
                     'rgba(255, 243, 161, ', /* Gold Light */
                     'rgba(255, 234, 0, ',   /* Yellow Accent */
-                    'rgba(220, 220, 220, '  /* Bright Silver/Ash */
+                    'rgba(255, 255, 255, '  /* White Glow */
                 ];
                 this.colorBase = colors[Math.floor(Math.random() * colors.length)];
             }
@@ -1051,7 +973,7 @@
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fillStyle = this.colorBase + this.opacity + ')';
-                ctx.shadowBlur = this.size * 3;
+                ctx.shadowBlur = this.size * 4;
                 ctx.shadowColor = '#ffd700';
                 ctx.fill();
                 ctx.shadowBlur = 0;
