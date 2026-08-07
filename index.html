@@ -163,14 +163,16 @@
             margin-bottom: 25px;
             position: relative;
             z-index: 2;
+            width: 100%;
         }
 
         .logo-box {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
+            justify-content: center;
+            gap: 10px;
             background: rgba(0, 0, 0, 0.75);
-            padding: 10px 30px;
+            padding: 10px 20px;
             border-radius: 50px;
             border: 2px solid var(--gold-main);
             box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
@@ -178,21 +180,23 @@
         }
 
         .logo-box i {
-            font-size: 32px;
+            font-size: clamp(20px, 4vw, 32px);
             background: linear-gradient(90deg, #ffd700, #ff0033, #ffe600, #ffd700);
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: textShiftRainbow 3s linear infinite;
+            flex-shrink: 0;
         }
 
         .logo-text {
-            font-size: 36px;
+            font-size: clamp(16px, 4.2vw, 36px); /* Otomatis mengecil di layar HP agar tidak terpotong */
             font-weight: 900;
             font-style: italic;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             display: flex;
             align-items: center;
+            white-space: nowrap; /* Mencegah teks turun baris terpisah gantung */
         }
 
         .logo-text .white-text {
@@ -319,7 +323,7 @@
         }
 
         .promo-title-anim {
-            font-size: 46px;
+            font-size: clamp(28px, 6vw, 46px);
             font-weight: 900;
             line-height: 0.9;
             font-style: italic;
@@ -655,28 +659,26 @@
 
         /* MEDIA QUERY RESPONSIVE UNTUK SMARTPHONE */
         @media (max-width: 768px) {
+            body {
+                padding: 10px 5px;
+            }
             .app-container {
                 border-radius: 15px;
                 border: 1.5px solid var(--gold-main);
             }
             .app-wrapper {
-                padding: 15px 12px;
+                padding: 15px 10px;
             }
             .main-content {
                 grid-template-columns: 1fr;
                 gap: 15px;
             }
-            .logo-text {
-                font-size: 28px;
-            }
             .logo-box {
-                padding: 8px 20px;
+                padding: 8px 12px;
+                gap: 6px;
             }
             .title-block {
                 text-align: center;
-            }
-            .promo-title-anim {
-                font-size: 38px;
             }
             .main-title {
                 font-size: 28px;
@@ -718,7 +720,7 @@
                 <div class="logo-box">
                     <i class="fa-solid fa-gauge-high" aria-hidden="true"></i>
                     <h1 class="logo-text">
-                        <span class="white-text">AVANZA</span><span class="gold-text-anim">TOTO</span> <span style="color: #ffd700;">SUPERWIN</span>
+                        <span class="white-text">AVANZA</span><span class="gold-text-anim">TOTO</span>&nbsp;<span style="color: #ffd700;">SUPERWIN</span>
                     </h1>
                 </div>
             </header>
